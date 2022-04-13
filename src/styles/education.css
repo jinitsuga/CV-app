@@ -1,3 +1,4 @@
+/* FORM SECTION */
 section {
   display: flex;
   flex-direction: column;
@@ -31,4 +32,21 @@ button {
 }
 .title {
   font-size: 16px;
+}
+/* HTML Elements */
+
+.educationElements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 100px;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 50px;
+  height: 300px;
+  box-shadow: 1px 2px 10px;
+  font-size: 16px;
+  color: rgba(26, 23, 23, 0.932);
 }

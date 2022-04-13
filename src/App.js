@@ -42,7 +42,6 @@ function App() {
     });
   }
   function handleExperience(e) {
-    console.log(experience);
     setExperience((oldExp) => {
       const field = e.target.className;
       return { ...oldExp, [field]: e.target.value };
@@ -51,9 +50,27 @@ function App() {
 
   return (
     <div className="App">
-      <General handleChange={handleGeneralInfo} />
-      <Education handleChange={handleEducation} />
-      <Experience handleChange={handleExperience} />
+      <General
+        handleChange={handleGeneralInfo}
+        name={generalInfo.name}
+        email={generalInfo.email}
+        phone={generalInfo.phone}
+      />
+      <Education
+        handleChange={handleEducation}
+        school={education.school}
+        title={education.educationTitle}
+        dateFrom={education.dateFrom}
+        dateTo={education.dateTo}
+      />
+      <Experience
+        handleChange={handleExperience}
+        company={experience.company}
+        position={experience.position}
+        tasks={experience.tasks}
+        fromDate={experience.fromDate}
+        toDate={experience.toDate}
+      />
     </div>
   );
 }

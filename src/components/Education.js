@@ -4,12 +4,37 @@ import education from "../styles/education.css";
 export default function Education(props) {
   function handleEducationSubmit(e) {
     e.preventDefault();
-    console.log("edu lol");
+    setShow((oldShow) => {
+      return { elements: !oldShow.elements, form: !oldShow.form };
+    });
   }
+
+  // Setting state to have control over showing either the form, or the
+  // HTML elements with the info from the form on them.
+  const [show, setShow] = React.useState({ elements: false, form: true });
 
   return (
     <section>
-      <form onSubmit={handleEducationSubmit} className="education-container">
+      <div
+        className="educationElements"
+        style={show.elements ? { display: "" } : { display: "none" }}
+      >
+        <h3 className="schoolText">School: {props.school}</h3>
+        <h3 className="educationTitleText">Title: {props.title}</h3>
+        <h4 className="educationDateFrom">From: {props.dateFrom}</h4>
+        <h4 className="educationDateTo">To: {props.dateTo}</h4>
+        <button className="editEducation" onClick={handleEducationSubmit}>
+          Edit education
+        </button>
+      </div>
+
+      {/*FORM BEGINS */}
+
+      <form
+        onSubmit={handleEducationSubmit}
+        className="education-container"
+        style={show.form ? { display: "" } : { display: "none" }}
+      >
         <h2 className="title"> Education </h2>
         <label htmlFor="school">
           <input
