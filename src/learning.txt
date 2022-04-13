@@ -1,0 +1,33 @@
+Some notes / some of the new things I learned in the making of this project:
+
+- passing 'e' as a parameter on a function to have the event of something happening,
+allowing us to know plenty of information about the event, in this case I was
+interested in the event's target, and the target's value (input forms)
+
+
+-The use of computed properties [written in square brackets] to pass 
+reference/overwrite property names of objects (For setting State, in this case)
+without giving the object a new property with the variable name, but instead, 
+value of that variable as a prop name. --->
+const propName = 'firstName'
+const name = 'Agu'
+const secondPropName = 'likes'
+const like = 'coffee'
+const person = { [propname]: name, [secondPropName]: like }
+
+If we console log'd the person object, we would get the following:
+
+Obj {
+    firstName: 'Agu',
+    likes: 'coffee'
+}
+
+
+-Conditional inline styling of an element by passing a style={object}
+
+-How much easier and cleaner it is to handle State for a component's children
+on its parent and nowhere else.
+
+-Potentially cleaning up all the CSS Into one file, and making the 3 State
+handling functions into only one generic "handleChange" function. (would require
+baking the 3 diff States into one)
